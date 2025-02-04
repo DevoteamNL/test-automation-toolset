@@ -36,7 +36,9 @@
         "esbenp.prettier-vscode",
         "ms-azuretools.vscode-docker",
         "github.vscode-github-actions",
-        "ms-azure-devops.azure-pipelines"
+        "ms-azure-devops.azure-pipelines",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
       ]
     }
   },
