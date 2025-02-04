@@ -1,10 +1,10 @@
 {
   "name": "Playwright Development Container",
-  // "build": {
-  //   "dockerfile": "Dockerfile",
-  //   "context": "."
-  // },
-  "image": "ghcr.io/devoteamnl/test-automation-toolset:0.0.4",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  // "image": "ghcr.io/devoteamnl/test-automation-toolset:0.0.4",
   "customizations": {
     "vscode": {
       "settings": {
@@ -35,7 +35,11 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "ms-azuretools.vscode-docker",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "browserstackcom.browserstack-vscode",
+        "ms-azure-devops.azure-pipelines",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
       ]
     }
   },
@@ -45,7 +49,7 @@
   "mounts": [
     "source=${localWorkspaceFolder},target=/home/ubuntu/workspace,type=bind,consistency=consistent",
     "source=/home/${localEnv:USER}/.ssh,target=/home/ubuntu/.ssh,type=bind,readonly",
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind,readonly"
+    // "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind,readonly"
   ],
   "containerEnv": {
     "DISPLAY": "${localEnv:DISPLAY}",
@@ -57,10 +61,10 @@
     "--volume=/tmp/.X11-unix:/tmp/.X11-unix:rw",
     "--volume=${localEnv:XDG_RUNTIME_DIR}/${localEnv:WAYLAND_DISPLAY}:/tmp/${localEnv:WAYLAND_DISPLAY}",
     "--privileged",
-    // "--userns=keep-id:uid=1000,gid=1000", // Keep the user id and group id the same as the host in Podman rootless setup
-
+    "--userns=keep-id:uid=1000,gid=1000", // Keep the user id and group id the same as the host in Podman rootless setup
     "--network=host" // Make it seem like there is no container but we are directly on the host
   ],
   "capAdd": ["SYS_ADMIN"],
-  "securityOpt": ["seccomp=unconfined","no-new-privileges=false"]
+  "securityOpt": ["seccomp=unconfined","no-new-privileges=false"],
+  // "postStartCommand": "if [ ! -d node_modules ]; then npm install; fi"
 }

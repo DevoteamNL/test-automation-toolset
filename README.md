@@ -17,6 +17,10 @@ _Preview of running a test in headed mode using devcontainer environment and Pla
 - Distribution: Fedora Linux 41 (Workstation Edition)
 - Kernel version: Linux 6.12.10-200.fc41.x86_64
 
+### Podman version
+
+- version 5.3.2
+
 ---
 
 ### Windows version
@@ -24,15 +28,6 @@ _Preview of running a test in headed mode using devcontainer environment and Pla
 - Edition Windows 11 Pro
 - Version 24H2
 - OS build 26100.2894
-
-### Rancher Desktop version
-
-- version 1.16.0
-
-### VSCode version
-
-- VSCode version: 1.96.4
-- Decontainer plugin version: 0.394.0
 
 ### WSL version
 
@@ -43,3 +38,12 @@ _Preview of running a test in headed mode using devcontainer environment and Pla
 
 - Ubuntu 24.04.1 LTS
 - Verify with: `cat /etc/os-release | grep PRETTY_NAME`
+
+### Docker version
+
+- version 27.5.1
+
+### VSCode version
+
+- VSCode version: 1.96.4
+- Decontainer plugin version: 0.394.0
